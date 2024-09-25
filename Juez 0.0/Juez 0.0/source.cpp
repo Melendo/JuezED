@@ -1,0 +1,59 @@
+
+// Autor/a: Nombre y apellidos
+// email:
+// Compilador y S.O. utilizado
+// Nombre del problema
+// Comentario general sobre la solución
+// explicando como se resuelve el problema
+
+#include <iostream>
+#include <fstream>
+#include "source.h"
+// Introduce más librerías si son necesarias
+using namespace std;
+
+// resuelve un caso de prueba, leyendo de la entrada la
+// configuración, y escribiendo la respuesta
+void resuelveCaso() {
+
+    // leer los datos de la entraa
+    ListLinkedDouble<int> lista1, lista2;
+    int n, x;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        cin >> x;
+        lista1.push_front(x);
+    }   
+    for (int i = 0; i < n; i++) {
+        cin >> x;
+        lista2.push_front(x);
+    }
+   lista1.repetir(lista2);
+    lista1.display();
+    cout << "\n";
+
+    // escribir solución
+}
+
+int main() {
+    // ajustes para que cin extraiga directamente de un fichero
+#ifndef DOMJUDGE
+    std::ifstream in("datos.txt");
+    auto cinbuf = std::cin.rdbuf(in.rdbuf());
+
+#endif
+
+    int numCasos;
+    std::cin >> numCasos;
+    for (int i = 0; i < numCasos; ++i)
+        resuelveCaso();
+
+    // para dejar todo como estaba al principio
+#ifndef DOMJUDGE
+    std::cin.rdbuf(cinbuf);
+    system("PAUSE");
+#endif
+    return 0;
+}
+
+
